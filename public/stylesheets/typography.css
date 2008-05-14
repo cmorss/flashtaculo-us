@@ -1,0 +1,67 @@
+/* basic font styles and baselines (not just for text) */
+/* http://code.google.com/p/blueprintcss */
+/* alistapart.com/articles/settingtypeontheweb */
+
+/* % of 16px (87.5% == 14px)*/
+body { font-size: 87.5%; }
+
+body { 
+  font-family: "Helvetica Neue", Arial, Verdana, sans-serif; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family: "Helvetica Neue", Arial, sans-serif; 
+}
+
+input, textarea { 
+  font-family: "Helvetica Neue", Arial, sans-serif; 
+}
+
+/* headings */
+
+h1, h2, h3, h4, h5, h6 { clear:both; font-weight:400; margin-bottom: 10px; }
+h1 { font-size: 3em; line-height:1; }
+h2 { font-size: 2em; line-height:1.5; }
+h3 { font-size: 1.5em; line-height:1; font-weight:700; }
+h4 { font-size: 1.5em; line-height:1; }
+h5 { font-size: 1em; font-weight:700; }
+h6 { font-size: 1em; font-weight:700; }
+
+
+/* texty stuff */
+
+p           { margin: 0 0 1.5em; }
+p.last      { margin-bottom:0; }
+
+ul, ol      { margin: 0 0 1.5em 0; }
+ul          { list-style-type: none; }
+ol          { list-style-type: none; }
+dl          { margin: 1.5em 0; }
+dl dt       { font-weight:700; }
+
+a:focus, 
+a:hover     { color: #1c5fa1; text-decoration: underline;}
+a           { color: #1c5fa1; text-decoration: none; }
+h1 a, h1 a:hover { color: #111; }
+
+blockquote  { margin: 1.5em; font-style: italic; }
+strong      { font-weight:700; }
+em          { font-style: italic; }
+pre         { margin-bottom: 1.3em; background: #eee; border:.1em solid #ddd; padding:1.5em; }
+code        { font:1em Monaco, Courier, monospace; } 
+
+
+/* tables */
+
+table { border: 0; }
+th { font-weight:bold; }
+th, td { border: 0; padding: 4px 10px 4px 0; }
+table .last { padding-right: 0; }
+
+
+/* Some default classes
+-------------------------------------------------------------- */
+
+.small  { font-size: .8em; margin-bottom: 1.875em; line-height: 1.875em; }
+.large  { font-size: 1.2em; line-height: 2.5em; }
+.hide   { display: none; }

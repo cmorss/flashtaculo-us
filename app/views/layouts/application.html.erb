@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <%= stylesheet_link_tag("screen", :media => :screen) %>
+
+    <%= javascript_include_tag(:defaults) %>
+
+    <title><%= page_title %></title>
+  </head>
+  
+  <body>
+    <div id='header-wrap'>
+      <div id='header'>
+        <h1 class='left'>
+          Flashtaculo.us
+        </h1>
+        
+        <% if logged_in? %>
+          <p class='right'>
+            <%= link_to(current_account.name.blank? ? 
+                    current_account.email : current_account.name, 
+                    account_path(current_account)) %> |    
+            <%= link_to('logout', session_path(), :method => :delete) %> 
+          </p>
+        <% elsif !hide_login?%>
+          <p class='right'><%= link_to('login', new_session_path) %></p>
+        <% end %>
+        <h2>Flash Cards for your iPhone</h2>
+      </div>
+    </div>
+
+    <div id='wrapper'>          
+      <div id='content'>
+        <%= yield %>
+      </div>
+    <div id='footer'>terms | privacy | about</div>
+  </body>
+</html>

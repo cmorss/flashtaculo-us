@@ -1,0 +1,33 @@
+<% 
+  page_title "Create a Deck" 
+  hide_login true
+%>
+
+<div class='edit'>
+
+  <h2>Create a Deck</h2>
+  
+  <%= flash_for(:error, :info) %>  
+  
+  <% form_for(@deck) do |f| %>
+    <label for='deck_name'>Title:</label>
+    <%= f.text_field(:name, :tabindex => 1) %>    
+
+    <label for='deck_description'>Description:</label>
+    <%= f.text_area(:description, :tabindex => 2, :rows => 3) %>
+    <p class='note'>
+      Optional explanatory text
+    </p>
+
+    <div class="center">
+      <%= submit_tag("Create Deck", :class => 'button') %>
+      <p class='note'>
+        You can start adding cards in just a sec...
+      </p>
+      
+    </div>
+  <% end %>
+  
+  <%= focus_dom_element_on_page_load('deck_name') %>
+</div>
+

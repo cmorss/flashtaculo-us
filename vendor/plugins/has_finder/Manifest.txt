@@ -1,0 +1,11 @@
+History.txt
+License.txt
+README.txt
+Rakefile
+config/hoe.rb
+config/requirements.rb
+lib/has_finder.rb
+lib/has_finder/has_finder.rb
+lib/has_finder/metaid.rb
+lib/has_finder/version.rb
+setup.rb

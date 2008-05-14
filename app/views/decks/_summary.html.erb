@@ -1,0 +1,12 @@
+<li class="deck <%= deck.public? ? 'public' : 'private' %>" >
+
+  <h3><%= link_to(deck.name, deck_path(deck)) %></h3>  
+  <%= p(deck.description) unless deck.description.empty? %>
+  
+  <p class='note'>
+    <%= pluralized_amount('card', deck.cards.size).capitalize %> 
+      <%= deck.cards.size == 1 ? 'is' : 'are' %> in this deck.
+  </p>
+  
+  <%= p("tags: #{deck.tag_list}", :class => 'tags') unless deck.tag_list.empty? %>
+</li>

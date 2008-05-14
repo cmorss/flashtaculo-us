@@ -1,0 +1,46 @@
+<div class="deck <%= @deck.public? ? 'public' : 'private' %>">
+  <h3>Create a new card for <%= link_to(@deck.name, deck_path(@deck)) %></h3>
+  <%= flash_for(:error, :info) %>  
+  
+  <%= set_ghost_text_in_field('card_question_1', 'Click to enter question') %>
+  <%= set_ghost_text_in_field('card_answer_1', 'Click to enter answer') %>
+  <%= set_ghost_text_in_field('card_answer_2', ' ') %>
+  
+  <% form_for([@deck, @card], :html => {:class => 'card'}) do |f| %>
+    <div class='phone site left question'>
+      <table class='card'>
+        <tr>
+          <td class='single line'>
+              <%= f.text_area(:question_1, :tabindex => 1, :rows => 1) %>
+          </td>
+        </tr>
+      </table>
+    </div> 
+    
+    <div class='phone site left answer card'>
+      <table>
+        <tr>
+          <td class='double top'>
+              <%= f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
+          </td>
+        </tr>
+
+        <tr>
+          <td class='double line'>
+              <%= f.text_area(:answer_2, :tabindex => 3, :rows => 1) %>
+          </td>
+        </tr>
+      </table>
+    </div> 
+
+    <div class="center">
+      <%= submit_tag("Create Card", :class => 'button') %> or
+      <%= link_to('Cancel', deck_path(@deck)) %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+  new ResizingTextArea('card_question');
+  new ResizingTextArea('card_answer');
+</script>

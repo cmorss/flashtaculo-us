@@ -1,0 +1,8 @@
+<ul class='accounts decks'>
+  <% @accounts.each do |account| %>
+    <li class='deck'>
+      <%= link_to(account.email, account_path(account)) %>
+      <span><%= account.name %> has <%= pluralized_amount('decks', account.decks.size) %>.</span>
+    </li>
+  <% end %>
+</ul>

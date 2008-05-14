@@ -1,0 +1,44 @@
+div.flash  {
+  padding: 12px 45px 12px 45px;  
+  margin-bottom: 1em;
+  font-weight: bold;
+  color: #333;
+  
+  position: relative;
+  background-color: magenta;
+  background-repeat: no-repeat;
+  background-position: 8px 8px;
+}
+
+div.flash.critical .fcontainer {
+  background-color: #fdf8d2;
+  background-image: url(/images/notification/error.png);
+}
+
+div.flash.error {
+  background-color: #fdf8d2;
+  background-image: url(/images/notification/error.png);
+}
+
+div.flash.warning {
+  background-color: #fdf8d2;
+  background-image: url(/images/notification/warning.png);
+}
+
+div.flash.message {
+  background-color: #cfe7b8;
+  background-image: url(/images/notification/message.png);
+}
+
+div.flash.info {
+  background-color: #c9e2ed;
+  background-image: url(/images/notification/info.png);
+}
+
+div.flash ul {
+  margin: 0;
+}
+
+div.flash.info strong {
+  color: #444;
+}

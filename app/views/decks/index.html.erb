@@ -1,0 +1,5 @@
+<ul class='decks'>
+  <% @decks.each do |deck| %>
+   <%= render :partial => 'summary', :locals => {:deck => deck} %>
+  <% end %>
+</ul>

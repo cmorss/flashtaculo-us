@@ -1,0 +1,11 @@
+first_grade_math:
+  name: First Grade Math
+  description: Beginning math for tiny tots just starting out. Ages 5 to 6.
+  public: 1
+  style: plain
+
+private_spanish:
+  name: My Private Spanish Lessions
+  description: My flash cards that I don't want anyone else to see.
+  public: 0
+  style: plain

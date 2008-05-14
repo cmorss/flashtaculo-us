@@ -1,0 +1,189 @@
+@import "reset.css";
+@import "typography.css";
+@import "notification.css";
+@import "card.css";
+@import "roundify.css";
+
+body {
+}
+
+#header-wrap {
+  background:#006699 url(/images/header_background.png) repeat scroll 0% 0%;
+	height: 90px;
+}
+
+#header {
+  color: white;
+	padding: 7px 25px 0 25px;
+	margin: auto;
+	clear: both;
+	width: 800px;
+}
+
+#header h1 {
+  clear: none;
+}
+
+#header h2 {
+  font-family: Courier;
+  font-size: 16px;
+}
+
+#header a {
+  color: white;
+}
+
+
+#wrapper {
+ 	margin: 0px auto;
+	border: 0px;
+	width: 800px;
+}
+
+#content { 
+  background-color: #fff;
+	padding: 0 25px 25px 25px;
+	float: left;
+	width: 95%;
+}
+
+#footer {
+  color: white;
+  padding-top: 2em;
+  text-align: center;
+	clear: both;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+h3 span {
+  font-size: 11px;
+}
+
+li.deck {
+  margin-top: 1.5em;
+  padding: 5px 0px 5px 70px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+li.deck.private {
+  background-image: url('/images/icons/private.png');
+  background-repeat: no-repeat;
+}
+
+li.deck.public {
+  background-image: url('/images/icons/public.png');
+  background-repeat: no-repeat;
+}
+
+li.deck p {
+  padding: 0px;
+  margin: 0px;
+}
+
+li.deck p.note {
+  font-size: .9em;
+  color: #666;
+}
+
+
+ul.accounts.decks li.deck {
+  font-size: 2em;
+  padding-left: 0px;
+  margin-top: 5px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+div.card.summary {
+  margin-top: 1em;
+  font-size: 1.25em;
+}
+
+div.card.summary p.question span,
+div.card.summary p.answer span {
+  font-size: 1.25em;
+  font-weight: bold;
+  padding-right: .25em;
+}
+
+.tags {
+  font-size: .9em;
+  color: #666;
+}
+
+div#sign_in {
+  width: 400px;
+  margin: 50px auto 0px;
+}
+
+div#sign_in h1 {
+  margin-bottom: 40px;;
+}
+
+#sign_in label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+#sign_in #email,
+#sign_in #password {
+  font-size: 16px;
+  width: 390px;
+}
+
+
+div.edit {
+  width:  400px;
+  margin: 50px auto 0px;
+}
+
+div.edit h1 {
+  margin-bottom: 40px;;
+}
+
+div.edit label {
+  display: block;
+  font-weight: bold;
+  font-size: 1.25em;
+  margin-top: 1.5em;
+}
+
+div.edit .note {
+  font-size: .95em;
+  color: #555;
+}
+
+div.edit input,
+div.edit textarea {
+  font-size: 16px;
+  width: 390px;
+}
+
+div.edit input.button {
+  margin-top: 1em;
+  width: auto;
+}
+
+div.phone {
+  height: 320px;
+  width: 480px;
+}
+
+div.phone.site {
+  height: 210px;
+  width: 325px;  
+  border: 2px solid #999;
+  font-size: 18px;
+}
+

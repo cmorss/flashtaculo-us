@@ -1,0 +1,13 @@
+<div class="deck <%= @deck.public? ? 'public' : 'private' %>">
+  <h3><%= link_to(h(@deck.name), edit_deck_path(@deck)) %></h3>
+  <%= p(@deck.description) unless @deck.description.empty? %>
+  <br>
+  <h3>Cards</h3>
+  <p class="note">
+    <%= link_to("Add cards", new_deck_card_path(@deck)) %>
+  </p>
+  
+  <% @deck.cards.each do |card| %>
+    <%= render :partial => '/cards/summary', :locals => {:card => card} %>
+  <% end %>
+</div>

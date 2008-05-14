@@ -1,0 +1,25 @@
+<% page_title "Sign In" %>
+
+<div id="sign_in">
+
+  <% form_tag(session_path) do %>
+    <label for="email">Email&nbsp;Address:</label>
+    <%= text_field_tag("email", {}, :tabindex => 1) %>
+    <p class="note">
+      No account?
+      <%= link_to("Create one now!", new_account_path) %>
+    </p>
+
+    <label for="password">Password:</label>
+    <%= password_field_tag("password", {}, :tabindex => 2) %>
+    
+    <p class="note">
+      <%= link_to('Forgot your Password?', :controller => :password_token, :action => :generate) %>
+    </p>
+
+    <div class="center">
+      <%= submit_tag("Sign in", :style => 'font-size: 1.5em') %>
+    </div>
+  <% end %>
+</div>
+

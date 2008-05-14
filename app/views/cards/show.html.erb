@@ -1,0 +1,16 @@
+<div class="deck <%= @deck.public? ? 'public' : 'private' %>">
+  <h3><%= link_to(h(@deck.name), deck_path(@deck)) %></h3>
+  <%= flash_for(:error, :info) %>  
+  
+  <h2>Question:</h2>
+
+  <div class='phone'>
+    <table>
+      <tr>
+        <td>
+          <%= h(@card.question) %>
+        </td>
+      </tr>
+    </table>
+  </div> 
+</div>

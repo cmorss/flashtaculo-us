@@ -1,0 +1,40 @@
+<% 
+  page_title "Create an Account" 
+  hide_login true
+%>
+
+<div class='edit'>
+
+  <h2>Create an Account</h2>
+  <p class="note">
+    Already have an account?
+    <%= link_to("Login in now.", session_path) %>
+  </p>
+
+  <%= flash_for(:error, :info) %>  
+  
+  <% form_for(@account) do |f| %>
+    <label for='account_name'>Nickname:</label>
+    <%= f.text_field(:name, :tabindex => 1) %>    
+    <p class='note'>
+      Used to identify you when 
+      you post comments or publish decks.
+    </p>
+
+    <label for='account_email'>Email&nbsp;Address:</label>
+    <%= f.text_field(:email, :tabindex => 2) %>
+
+    <label for="account_password">Password:</label>
+    <%= f.password_field(:password, :tabindex => 3) %>
+
+    <label for="account_password_confirm">Confirm Password:</label>
+    <%= f.password_field(:password_confirmation, :tabindex => 4) %>
+    
+    <div class="center">
+      <%= submit_tag("Create Account", :class => 'button') %>
+    </div>
+  <% end %>
+  
+  <%= focus_dom_element_on_page_load('account_name') %>
+</div>
+
