@@ -5,16 +5,16 @@
 @import "roundify.css";
 
 body {
+  background: #fff url(/images/header_background.png) repeat-x scroll 0% 0%;
 }
 
 #header-wrap {
-  background:#006699 url(/images/header_background.png) repeat scroll 0% 0%;
-	height: 90px;
+	height: 118px;
 }
 
 #header {
   color: white;
-	padding: 7px 25px 0 25px;
+	padding: 17px 25px 0 25px;
 	margin: auto;
 	clear: both;
 	width: 800px;
@@ -26,7 +26,7 @@ body {
 
 #header h2 {
   font-family: Courier;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 #header a {
@@ -41,14 +41,12 @@ body {
 }
 
 #content { 
-  background-color: #fff;
 	padding: 0 25px 25px 25px;
 	float: left;
 	width: 95%;
 }
 
 #footer {
-  color: white;
   padding-top: 2em;
   text-align: center;
 	clear: both;
