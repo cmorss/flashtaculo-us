@@ -18,7 +18,7 @@ class InitialCreation < ActiveRecord::Migration
     create_table :decks, :force => true do |t|
       t.string   :name, :null => false
       t.string   :description
-      t.string   :account_id, :null => false
+      t.integer   :account_id, :null => false
       t.boolean  :public, :default => false
       t.integer  :style_id, :null => false
       t.string   :cached_tag_list

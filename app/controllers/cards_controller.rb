@@ -2,14 +2,18 @@ class CardsController < ApplicationController
   before_filter :find_deck
   before_filter :find_card, :only => [:update, :show]
   
+  include ActionView::Helpers::TextHelper
+    
   def new
     @card = @deck.cards.build
   end
   
   def create
     @card = @deck.cards.create(params[:card])
-    @card.save!    
-    flash[:info] = "Card \"#{@card.question}\" - \"#{@card.answer}\" created."
+    @card.save!
+    
+    flash[:info] = "Card \"#{truncate(h(@card.question))}\" -
+      \"#{truncate(h(@card.answer))}\" created."
     redirect_to new_deck_card_path(@deck)
   end
   

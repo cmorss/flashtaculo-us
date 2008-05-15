@@ -1,7 +1,7 @@
 <h2>New Decks (home page)</h2>
 
-<div class='decks'>
+<ul class='decks'>
   <% @decks.each do |deck| %>
     <%= render :partial => '/decks/summary', :locals => {:deck => deck} %>
   <% end %>
-</div>
+</ul>

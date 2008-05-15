@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 1) do
   create_table "decks", :force => true do |t|
     t.string   "name",            :default => "",    :null => false
     t.string   "description"
-    t.string   "account_id",      :default => "",    :null => false
+    t.integer  "account_id",                         :null => false
     t.boolean  "public",          :default => false
     t.integer  "style_id",                           :null => false
     t.string   "cached_tag_list"

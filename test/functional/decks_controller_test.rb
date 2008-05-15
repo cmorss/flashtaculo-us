@@ -8,7 +8,6 @@ class DecksControllerTest < ActionController::TestCase
     @response = ActionController::TestResponse.new
   end
 
-
   def test_new_not_logged_in_redirect
     get(:new)
     assert_response(:redirect)
@@ -18,6 +17,14 @@ class DecksControllerTest < ActionController::TestCase
     @request.session[:account_id] = accounts(:micky_mouse).id
     get(:new)
     assert_response(:success)
+  end
+  
+  def test_not_mine_deck_redirect
+    @request.session[:account_id] = accounts(:micky_mouse).id 
+    deck = decks(:private_german)
+    get(:show, :id => deck.id)
+    assert_response(:redirect)
+    assert_match /find the deck you selected/, @response.body
   end
 end
 

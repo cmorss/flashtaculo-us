@@ -3,9 +3,19 @@ first_grade_math:
   description: Beginning math for tiny tots just starting out. Ages 5 to 6.
   public: 1
   style: plain
+  account: micky_mouse
 
 private_spanish:
   name: My Private Spanish Lessions
   description: My flash cards that I don't want anyone else to see.
   public: 0
   style: plain
+  account: micky_mouse
+
+private_german:
+  name: German 101
+  description: Spreken Zie Dutshe
+  public: 0
+  style: plain
+  account: moose
+  

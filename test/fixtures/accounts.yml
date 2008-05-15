@@ -3,3 +3,8 @@ micky_mouse:
   email: micky@disney.com
   password: 123456
   
+moose:
+  name: moose
+  email: moose@disney.com
+  password: 123456
+  

@@ -1,5 +1,7 @@
 class DecksController < ApplicationController
+  
   before_filter :find_deck, :except => [:index, :new, :create]
+  skip_before_filter :check_for_user, :only => :show
   
   def index
     @decks = Deck.for_library
@@ -28,13 +30,17 @@ class DecksController < ApplicationController
     else
       flash[:error] = @deck.errors.full_messages
       render :template => 'edit'
-    end
-    
+    end    
   end
   
   protected ##################
   
   def find_deck
-    @deck = Deck.find(params[:id])
+    context = logged_in? ? Deck.for_account_or_public(current_account) : Deck.public
+    @deck = context.find(params[:id]) rescue nil
+    unless @deck
+      flash[:error] = "We're sorry. We can't seem to find the deck you selected."
+      return redirect_to('/')
+    end
   end
 end
