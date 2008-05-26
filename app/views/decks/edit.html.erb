@@ -1,26 +1,74 @@
-<% 
-  page_title "Edit Deck #{@deck.name}" 
-  hide_login true
-%>
+<%  page_title "Edit Deck #{@deck.name}" %>
+<%= javascript_include_tag('decks') %>
 
-<div class='edit'>
+<div class='left' style='margin: 28px 20px 0 0; text-align: center'>
+  <%= icon_tag(@deck.icon, :id => 'icon_image') %><br>
+  <%= link_to_function('Change', 'Decks.startIconEditing()', :id => 'change_link') %>
+  <%= link_to_function('Finished', 'Decks.endIconEditing()', 
+        :id => 'finished_link', :style => 'display:none') %>
+</div>
 
+<div class='edit left' style='margin-top: 0px;'>
   <%= flash_for(:error, :info) %>  
   
-  <% form_for(@deck) do |f| %>
-    <label for='deck_name'>Title:</label>
-    <%= f.text_field(:name, :tabindex => 1) %>    
+  <% form_for(@deck, :html => {:id => 'edit_form'}) do |f| %>
+  
+    <div style='position:relative'>
+      <div id='placeholder' style='height: 75px'>
+        &nbsp;
+      </div>
 
-    <label for='deck_description'>Description:</label>
-    <%= f.text_area(:description, :tabindex => 2, :rows => 3) %>
-    <p class='note'>
-      Optional explanatory text
-    </p>
-
-    <div class="center">
-      <%= submit_tag("Save", :class => 'button') %> or 
-      <%= link_to('Cancel', deck_path(@deck)) %>
+      <%= hidden_field_tag('deck_icon_color', @deck.icon.color) %>
+      <%= hidden_field_tag('deck_icon_overlay', @deck.icon.overlay) %>
+      
+      <div id='name_div' style='position:absolute; top: 0px'>
+        <label for='deck_name'>Title:</label>
+        <%= f.text_field(:name, :tabindex => 1, :class => 'name') %>
+      </div>
+    
+      <div id='icons' style='display:none; position: absolute; top: 0px; padding-top: 24px; width: 300px'>
+        <div id='colors' style='border-bottom: 1px solid #ddd; margin-bottom: .25em'>
+          <% colors = %w(blue yellow green magenta) %>
+          <% overlays = %w(geo bird person basic_math) %>
+          <% colors.each_with_index do |color, index| %>
+            <%= link_to_function(color_blank_tag(color), "switchColor('#{color}', #{index})") %>
+          <% end %>
+        </div>
+      
+        <div id='icon_selection' style='height: 67px; overflow: hidden; position: relative'>
+          <% colors.each_with_index do |color, index| %>
+            <div id='icon_pallete_<%= color %>' class='icon_pallete' 
+              style='<%= 'display:none' unless index == 0 %>; position: absolute; top: 0px; width: 300px; padding: 2px '>
+              <% overlays.each do |overlay| %>
+                <% icon = Icon.new(:color => color, :overlay => overlay) %>
+                <%= link_to_function(icon_tag(icon), 
+                      "iconSelected('#{full_icon_path(icon)}', '#{color}', '#{overlay}')") -%>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
+    
+    <div id='lower_edits' style='position: relative'>
+      <label for='deck_description'>Description:</label>
+      <%= f.text_area(:description, :tabindex => 2, :rows => 3) %>
+      <p class='note'>
+        Optional explanatory text
+      </p>
+
+      <label for='deck_tag_list'>Tags:</label>
+      <%= f.text_field(:tag_list, :tabindex => 3) %>    
+      <p class='note'>
+        Tags separated by spaces, i.e. geography usa rivers
+      </p>
+    
+      <div class="center" style='clear:both'>
+        <%= submit_tag("Save", :class => 'button') %> or 
+        <%= link_to('Cancel', deck_path(@deck)) %>
+      </div>
+    </div>
+
   <% end %>
   
   <%= focus_dom_element_on_page_load('deck_name') %>

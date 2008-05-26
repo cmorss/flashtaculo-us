@@ -1,46 +1,60 @@
 <div class="deck <%= @deck.public? ? 'public' : 'private' %>">
   <h3>Create a new card for <%= link_to(@deck.name, deck_path(@deck)) %></h3>
   <%= flash_for(:error, :info) %>  
-  
-  <%= set_ghost_text_in_field('card_question_1', 'Click to enter question') %>
-  <%= set_ghost_text_in_field('card_answer_1', 'Click to enter answer') %>
-  <%= set_ghost_text_in_field('card_answer_2', ' ') %>
-  
+      
   <% form_for([@deck, @card], :html => {:class => 'card'}) do |f| %>
-    <div class='phone site left question'>
-      <table class='card'>
+
+    <div id='fields' style='display:none'>
+      <% %w(question answer).each_with_index do |verb, verb_index| %>
+        <% (1..6).each do |index| %>
+          <% ghost = index == 1 ? "Click to enter #{verb}" : " " %>
+          <% tabindex = (verb_index + 1) * (index - 1) %>
+          <%= f.text_area(:"#{verb}_#{index}", :tabindex => tabindex, :rows => 1) %>
+          <%= set_ghost_text_in_field("card_question_#{index}", ghost) %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%# template_question is for searching for all question templates %>
+    <div id='template_1_question' 
+      class='template question centered_single plain_style'>
+      <table>
         <tr>
-          <td class='single line'>
-              <%= f.text_area(:question_1, :tabindex => 1, :rows => 1) %>
+          <td class='line_1'>
+            <%# f.text_area(:question_1, :tabindex => 2, :rows => 1) %>
           </td>
         </tr>
       </table>
     </div> 
     
-    <div class='phone site left answer card'>
+    <%# template_answer is for searching for all answer templates %>
+    <div id='template_1_answer' 
+      class='template answer centered_double plain_style'>
       <table>
         <tr>
-          <td class='double top'>
-              <%= f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
+          <td class='line_1'>
+              <%# f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
           </td>
         </tr>
 
         <tr>
-          <td class='double line'>
-              <%= f.text_area(:answer_2, :tabindex => 3, :rows => 1) %>
+          <td class='line_2'>
+              <%# f.text_area(:answer_2, :tabindex => 3, :rows => 1) %>
           </td>
         </tr>
       </table>
     </div> 
 
     <div class="center">
-      <%= submit_tag("Create Card", :class => 'button') %> or
+      <%= submit_tag(@card.new_record? ? "Create Card" : "Save Card", :class => 'button') %> or
       <%= link_to('Cancel', deck_path(@deck)) %>
     </div>
   <% end %>
 </div>
 
 <script>
-  new ResizingTextArea('card_question');
-  new ResizingTextArea('card_answer');
+  Event.observe(window, 'load', function() {
+      Card.loadTemplate(1, 'question');
+      Card.loadTemplate(1, 'answer');
+    }, false);
 </script>

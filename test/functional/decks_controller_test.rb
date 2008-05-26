@@ -23,8 +23,7 @@ class DecksControllerTest < ActionController::TestCase
     @request.session[:account_id] = accounts(:micky_mouse).id 
     deck = decks(:private_german)
     get(:show, :id => deck.id)
-    assert_response(:redirect)
-    assert_match /find the deck you selected/, @response.body
+    assert_response(:redirect)    
   end
 end
 

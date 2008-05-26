@@ -36,7 +36,17 @@ ActiveRecord::Schema.define(:version => 1) do
     t.integer  "account_id",                         :null => false
     t.boolean  "public",          :default => false
     t.integer  "style_id",                           :null => false
+    t.string   "icon_color",      :default => "",    :null => false
+    t.string   "icon_overlay",    :default => "",    :null => false
     t.string   "cached_tag_list"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "icons", :force => true do |t|
+    t.string   "name",       :default => "",    :null => false
+    t.string   "path",       :default => "",    :null => false
+    t.boolean  "default",    :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

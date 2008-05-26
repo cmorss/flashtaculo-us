@@ -1,0 +1,258 @@
+# Logfile created on Thu May 22 10:30:25 -0700 2008  [4;36;1mSQL (0.000439)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000209)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000214)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.001152)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000186)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000518)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000322)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000212)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000173)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000192)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000320)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000237)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000797)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000207)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000438)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mStyle Load (0.000352)[0m   [0mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;36;1mAccount Load (0.000250)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mTagging Columns (0.002235)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mDeck Create (0.000415)[0m   [0;1mINSERT INTO `decks` (`cached_tag_list`, `icon_color`, `name`, `updated_at`, `account_id`, `public`, `style_id`, `icon_overlay`, `description`, `created_at`) VALUES('', '', 'My first deck', '2008-05-24 09:17:20', 36027756, 0, 79319043, '', NULL, '2008-05-24 09:17:20')[0m
+  [4;35;1mAccount Load (0.000228)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mSQL (0.000545)[0m   [0;1mSELECT count(*) AS count_all FROM `decks` WHERE (decks.account_id = 36027756) [0m
+  [4;35;1mSQL (0.000319)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000158)[0m   [0;1mBEGIN[0m
+  [4;35;1mAccount Load (0.000281)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mAccount Load (0.000470)[0m   [0;1mSELECT * FROM `accounts` WHERE (email = 'micky@disney.com' and password = '123456') LIMIT 1[0m
+  [4;35;1mSQL (0.000206)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000159)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000143)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000141)[0m   [0;1mBEGIN[0m
+  [4;35;1mDeck Load (0.000332)[0m   [0mSELECT * FROM `decks` WHERE (public = 0) [0m
+  [4;36;1mSQL (0.000151)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000214)[0m   [0mBEGIN[0m
+  [4;36;1mStyle Load (0.000484)[0m   [0;1mSELECT * FROM `styles` WHERE (`styles`.`name` = 'plain') LIMIT 1[0m
+  [4;35;1mSQL (0.000248)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000212)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000208)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000443)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000093)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000622)[0m   [0;1mSELECT * FROM `accounts` WHERE (email = 'foo@bar.com') LIMIT 1[0m
+
+
+Processing AccountsController#create (for 0.0.0.0 at 2008-05-24 09:17:22) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"accounts", "password"=>"123456", "email"=>"foo@bar.com", "password_confirm"=>"123456"}
+  [4;35;1mAccount Load (0.000371)[0m   [0mSELECT * FROM `accounts` WHERE (accounts.name = '') LIMIT 1[0m
+  [4;36;1mAccount Load (0.000247)[0m   [0;1mSELECT * FROM `accounts` WHERE (accounts.email = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering /accounts/new
+Completed in 0.27200 (3 reqs/sec) | Rendering: 0.26728 (98%) | DB: 0.00178 (0%) | 200 OK [http://test.host/accounts?email=foo%40bar.com&password=123456&password_confirm=123456]
+  [4;35;1mAccount Load (0.000297)[0m   [0mSELECT * FROM `accounts` WHERE (email = 'foo@bar.com') LIMIT 1[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000184)[0m   [0mBEGIN[0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:17:22) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Redirected to http://test.host/session/new
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x18d5148 @filter=:check_for_user>] rendered_or_redirected.
+Completed in 0.00040 (2519 reqs/sec) | DB: 0.00072 (181%) | 302 Found [http://test.host/decks/new]
+  [4;36;1mSQL (0.000242)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000484)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000417)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:17:22) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Rendering template within layouts/application
+Rendering decks/new
+  [4;35;1mAccount Load (0.000299)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+Completed in 0.02722 (36 reqs/sec) | Rendering: 0.02257 (82%) | DB: 0.00144 (5%) | 200 OK [http://test.host/decks/new]
+  [4;36;1mSQL (0.000291)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000396)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000223)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000466)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 675896861) [0m
+
+
+Processing DecksController#show (for 0.0.0.0 at 2008-05-24 09:17:22) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"675896861", "controller"=>"decks"}
+  [4;36;1mAccount Load (0.000171)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000306)[0m   [0mSELECT * FROM `decks` WHERE (public = 1 or account_id = 36027756) AND (`decks`.`id` = 675896861) [0m
+Redirected to http://test.host/
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x17e80f0 @filter=:find_deck>] rendered_or_redirected.
+Completed in 0.00131 (762 reqs/sec) | DB: 0.00185 (141%) | 302 Found [http://test.host/decks/675896861]
+  [4;36;1mSQL (0.000222)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000146)[0m   [0mBEGIN[0m
+
+
+Processing SessionsController#create (for 0.0.0.0 at 2008-05-24 09:17:23) [POST]
+  Session ID: 
+  Parameters: {"action"=>"create", "controller"=>"sessions", "password"=>"123456", "email"=>"micky@disney.com"}
+  [4;36;1mAccount Load (0.000448)[0m   [0;1mSELECT * FROM `accounts` WHERE (email = 'micky@disney.com' and password = '123456') LIMIT 1[0m
+Redirected to http://test.host/accounts/36027756
+Completed in 0.00334 (299 reqs/sec) | DB: 0.00082 (24%) | 302 Found [http://test.host/session?email=micky%40disney.com&password=123456]
+  [4;35;1mAccount Load (0.000187)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mSQL (0.000190)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000406)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000096)[0m   [0mBEGIN[0m
+  [4;36;1mDeck Load (0.000287)[0m   [0;1mSELECT * FROM `decks` WHERE (public = 0) [0m
+  [4;35;1mSQL (0.000226)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000101)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000094)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000125)[0m   [0mBEGIN[0m
+  [4;36;1mDeck Load (0.000285)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;35;1mStyle Load (0.000488)[0m   [0mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;36;1mAccount Load (0.004643)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mTagging Columns (0.002264)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mTag Load (0.021134)[0m   [0;1mSELECT tags.* FROM tags INNER JOIN taggings ON tags.id = taggings.tag_id WHERE ((taggings.taggable_type = 'Deck') AND (taggings.taggable_id = 908607445)) [0m
+  [4;35;1mDeck Update (0.003631)[0m   [0mUPDATE `decks` SET `created_at` = '2008-05-24 09:18:58', `icon_overlay` = '', `cached_tag_list` = '', `style_id` = 79319043, `public` = 1, `icon_color` = '', `description` = 'Beginning math for tiny tots just starting out. Ages 5 to 6.', `account_id` = 36027756, `updated_at` = '2008-05-24 09:18:58', `name` = 'First Grade Math' WHERE `id` = 908607445[0m
+  [4;36;1mDeck Load (0.003478)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;35;1mSQL (0.000377)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000400)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+  [4;36;1mDeck Load (0.000311)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;35;1mStyle Load (0.000553)[0m   [0mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;36;1mAccount Load (0.000411)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mTagging Columns (0.002392)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mTag Load (0.000276)[0m   [0;1mSELECT tags.* FROM tags INNER JOIN taggings ON tags.id = taggings.tag_id WHERE ((taggings.taggable_type = 'Deck') AND (taggings.taggable_id = 908607445)) [0m
+  [4;35;1mDeck Update (0.000503)[0m   [0mUPDATE `decks` SET `created_at` = '2008-05-24 09:20:06', `icon_overlay` = '', `cached_tag_list` = '', `style_id` = 79319043, `public` = 1, `icon_color` = 'yellow', `description` = 'Beginning math for tiny tots just starting out. Ages 5 to 6.', `account_id` = 36027756, `updated_at` = '2008-05-24 09:20:06', `name` = 'First Grade Math' WHERE `id` = 908607445[0m
+  [4;36;1mDeck Load (0.000363)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;35;1mSQL (0.000269)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.001123)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000158)[0m   [0mBEGIN[0m
+  [4;36;1mDeck Load (0.000417)[0m   [0;1mSELECT * FROM `decks` WHERE (public = 0) [0m
+  [4;35;1mDeck Load (0.000390)[0m   [0mSELECT * FROM `decks` WHERE (public = 1) [0m
+  [4;36;1mDeck Load (0.000217)[0m   [0;1mSELECT * FROM `decks` [0m
+  [4;35;1mSQL (0.000291)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mDeck Load (0.000352)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;36;1mStyle Load (0.000287)[0m   [0;1mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;35;1mAccount Load (0.000282)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mTagging Columns (0.001708)[0m   [0;1mSHOW FIELDS FROM `taggings`[0m
+  [4;35;1mTag Load (0.000197)[0m   [0mSELECT tags.* FROM tags INNER JOIN taggings ON tags.id = taggings.tag_id WHERE ((taggings.taggable_type = 'Deck') AND (taggings.taggable_id = 908607445)) [0m
+  [4;36;1mDeck Update (0.000381)[0m   [0;1mUPDATE `decks` SET `created_at` = '2008-05-24 09:20:17', `icon_overlay` = '', `cached_tag_list` = '', `style_id` = 79319043, `public` = 1, `icon_color` = 'yellow', `description` = 'Beginning math for tiny tots just starting out. Ages 5 to 6.', `account_id` = 36027756, `updated_at` = '2008-05-24 09:20:17', `name` = 'First Grade Math' WHERE `id` = 908607445[0m
+  [4;35;1mDeck Load (0.000243)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;36;1mSQL (0.000189)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000402)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000293)[0m   [0mBEGIN[0m
+  [4;36;1mDeck Load (0.000558)[0m   [0;1mSELECT * FROM `decks` WHERE (public = 0) [0m
+  [4;35;1mDeck Load (0.000474)[0m   [0mSELECT * FROM `decks` WHERE (public = 1) [0m
+  [4;36;1mDeck Load (0.000443)[0m   [0;1mSELECT * FROM `decks` [0m
+  [4;35;1mSQL (0.000227)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mBEGIN[0m
+  [4;35;1mDeck Load (0.000265)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;36;1mStyle Load (0.000355)[0m   [0;1mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;35;1mAccount Load (0.000311)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mTagging Columns (0.001649)[0m   [0;1mSHOW FIELDS FROM `taggings`[0m
+  [4;35;1mTag Load (0.000719)[0m   [0mSELECT tags.* FROM tags INNER JOIN taggings ON tags.id = taggings.tag_id WHERE ((taggings.taggable_type = 'Deck') AND (taggings.taggable_id = 908607445)) [0m
+  [4;36;1mDeck Update (0.000410)[0m   [0;1mUPDATE `decks` SET `created_at` = '2008-05-24 09:20:33', `icon_overlay` = '', `cached_tag_list` = '', `style_id` = 79319043, `public` = 1, `icon_color` = 'yellow', `description` = 'Beginning math for tiny tots just starting out. Ages 5 to 6.', `account_id` = 36027756, `updated_at` = '2008-05-24 09:20:33', `name` = 'First Grade Math' WHERE `id` = 908607445[0m
+  [4;35;1mDeck Load (0.000264)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 908607445) [0m
+  [4;36;1mSQL (0.000218)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000525)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000207)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000422)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mStyle Load (0.000445)[0m   [0mSELECT * FROM `styles` WHERE (`styles`.`id` = 79319043) [0m
+  [4;36;1mAccount Load (0.000319)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mTagging Columns (0.002071)[0m   [0mSHOW FIELDS FROM `taggings`[0m
+  [4;36;1mDeck Create (0.000327)[0m   [0;1mINSERT INTO `decks` (`cached_tag_list`, `icon_color`, `name`, `updated_at`, `account_id`, `public`, `style_id`, `icon_overlay`, `description`, `created_at`) VALUES('', '', 'My first deck', '2008-05-24 09:20:50', 36027756, 0, 79319043, '', NULL, '2008-05-24 09:20:50')[0m
+  [4;35;1mAccount Load (0.000173)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mSQL (0.000241)[0m   [0;1mSELECT count(*) AS count_all FROM `decks` WHERE (decks.account_id = 36027756) [0m
+  [4;35;1mSQL (0.000353)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000197)[0m   [0;1mBEGIN[0m
+  [4;35;1mAccount Load (0.000234)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;36;1mAccount Load (0.000360)[0m   [0;1mSELECT * FROM `accounts` WHERE (email = 'micky@disney.com' and password = '123456') LIMIT 1[0m
+  [4;35;1mSQL (0.000141)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000436)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mBEGIN[0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:21:27) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Redirected to http://test.host/session/new
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x1875720 @filter=:check_for_user>] rendered_or_redirected.
+Completed in 0.00041 (2462 reqs/sec) | DB: 0.00064 (158%) | 302 Found [http://test.host/decks/new]
+  [4;36;1mSQL (0.000272)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000195)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000342)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:21:27) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Rendering template within layouts/application
+Rendering decks/new
+  [4;35;1mAccount Load (0.000306)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+Completed in 0.08101 (12 reqs/sec) | Rendering: 0.07696 (95%) | DB: 0.00111 (1%) | 200 OK [http://test.host/decks/new]
+  [4;36;1mSQL (0.000263)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000229)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000386)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 675896861) [0m
+
+
+Processing DecksController#show (for 0.0.0.0 at 2008-05-24 09:21:27) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"675896861", "controller"=>"decks"}
+  [4;36;1mAccount Load (0.000173)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000288)[0m   [0mSELECT * FROM `decks` WHERE (public = 1 or account_id = 36027756) AND (`decks`.`id` = 675896861) [0m
+Redirected to http://test.host/
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x23a6f04 @filter=:find_deck>] rendered_or_redirected.
+Completed in 0.00128 (780 reqs/sec) | DB: 0.00154 (119%) | 302 Found [http://test.host/decks/675896861]
+  [4;36;1mSQL (0.000561)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000442)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000113)[0m   [0mBEGIN[0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:25:01) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Redirected to http://test.host/session/new
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x1876d14 @filter=:check_for_user>] rendered_or_redirected.
+Completed in 0.00040 (2507 reqs/sec) | DB: 0.00056 (139%) | 302 Found [http://test.host/decks/new]
+  [4;36;1mSQL (0.000271)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000437)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+
+
+Processing DecksController#new (for 0.0.0.0 at 2008-05-24 09:25:01) [GET]
+  Session ID: 
+  Parameters: {"action"=>"new", "controller"=>"decks"}
+Rendering template within layouts/application
+Rendering decks/new
+  [4;35;1mAccount Load (0.000268)[0m   [0mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+Completed in 0.10348 (9 reqs/sec) | Rendering: 0.09793 (94%) | DB: 0.00117 (1%) | 200 OK [http://test.host/decks/new]
+  [4;36;1mSQL (0.000258)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000198)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000210)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000532)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 675896861) [0m
+
+
+Processing DecksController#show (for 0.0.0.0 at 2008-05-24 09:25:01) [GET]
+  Session ID: 
+  Parameters: {"action"=>"show", "id"=>"675896861", "controller"=>"decks"}
+  [4;36;1mAccount Load (0.000344)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000488)[0m   [0mSELECT * FROM `decks` WHERE (public = 1 or account_id = 36027756) AND (`decks`.`id` = 675896861) [0m
+Redirected to http://test.host/
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x23a7094 @filter=:find_deck>] rendered_or_redirected.
+Completed in 0.00237 (421 reqs/sec) | DB: 0.00203 (85%) | 302 Found [http://test.host/decks/675896861]
+  [4;36;1mSQL (0.000451)[0m   [0;1mROLLBACK[0m

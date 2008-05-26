@@ -18,9 +18,11 @@ class InitialCreation < ActiveRecord::Migration
     create_table :decks, :force => true do |t|
       t.string   :name, :null => false
       t.string   :description
-      t.integer   :account_id, :null => false
+      t.integer  :account_id, :null => false
       t.boolean  :public, :default => false
       t.integer  :style_id, :null => false
+      t.string  :icon_color, :null => false
+      t.string  :icon_overlay, :null => false
       t.string   :cached_tag_list
       t.timestamps
     end
@@ -68,6 +70,13 @@ class InitialCreation < ActiveRecord::Migration
     add_index :taggings, :tag_id
     add_index :taggings, [:taggable_id, :taggable_type]
 
+    create_table :icons, :force => true do |t|
+      t.string :name, :null => false
+      t.string :path, :null => false
+      t.boolean :default, :default => false
+      t.timestamps
+    end
+    
     root_account = Account.create!(:name => 'root', :admin => true, 
       :email => 'root@flash.com', :password => '123456')
       
@@ -84,18 +93,21 @@ class InitialCreation < ActiveRecord::Migration
     root_account.decks.create!(
       :name => '1st Grade Math',
       :description => 'For tiny tots just starting out with their numbers. Basic addition only.',
-      :style_id => plain.id)
+      :style_id => plain.id,
+      :icon => Icon.new(:color => 'magenta', :overlay => 'basic_math'))
 
     root_account.decks.create!(
       :name => '2st Grade Math',
       :description => 'For bigger tots just starting out with their numbers. Basic addition and subtraction.',
       :style_id => plain.id,
-      :public => true)
+      :public => true,
+      :icon => Icon.new(:color => 'blue', :overlay => 'basic_math'))
 
     capitals_deck = root_account.decks.create!(
       :name => 'USA State capitals',
       :description => 'All 50 states.',
-      :style_id => plain.id)
+      :style_id => plain.id,
+      :icon => Icon.new(:color => 'green', :overlay => 'person'))
 
     capitals_deck.cards.create!(:question => 'New York',
       :answer => 'Albany')
@@ -113,8 +125,9 @@ class InitialCreation < ActiveRecord::Migration
       :name => 'USA State Birds',
       :description => 'Good luck with this one',
       :public => true,
-      :style_id => plain.id)
+      :style_id => plain.id,
+      :icon => Icon.new(:color => 'yellow', :overlay => 'bird'))
 
-    root_account.subscriptions << birds_deck
+    root_account.subscriptions << birds_deck    
   end
 end

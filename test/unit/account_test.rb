@@ -5,7 +5,7 @@ class AccountTest < ActiveSupport::TestCase
     a = accounts(:micky_mouse)
     a.decks.create!(:name => 'My first deck', :style => styles(:plain))
     a.reload
-    assert_equal(1, a.decks.size)
+    assert_equal(3, a.decks.size)
   end
   
   def test_login

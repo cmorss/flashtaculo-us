@@ -23,6 +23,9 @@ class DecksController < ApplicationController
   end
   
   def update
+    @deck.icon.color = params[:deck_icon_color]
+    @deck.icon.overlay = params[:deck_icon_overlay]
+    
     @deck.update_attributes(params[:deck])
     if @deck.valid?
       @deck.save!

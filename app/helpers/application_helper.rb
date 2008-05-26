@@ -35,10 +35,6 @@ module ApplicationHelper
     @hide_login = hide
   end
 
-  def set_ghost_text_in_field(dom_id, text)
-    javascript_tag("Event.observe(window, 'load', function(event){Forms.ghost('#{dom_id}','#{text}')}, false)")
-  end
-  
   def flash_for(*topics)    
     content = ''
     topics.collect do |topic|
@@ -48,44 +44,24 @@ module ApplicationHelper
   end
   
   def focus_dom_element_on_page_load(dom_id)
-    javascript_tag("Event.observe(window, 'load', function(event){ $('#{dom_id}').focus() }, false)")
+    javascript_tag("Event.observe(window, 'load', " + 
+      "function(event){ $('#{dom_id}').focus() }, false)")
   end
 
   def set_ghost_text_in_field(dom_id, text)
-    javascript_tag("Event.observe(window, 'load', function(event){Forms.ghost('#{dom_id}','#{text}')}, false)")
+    javascript_tag("Event.observe(window, 'load', " + 
+      "function(event){Forms.ghost('#{dom_id}','#{text}')}, false)")
+  end
+
+  def icon_tag(icon, opts={})
+    image_tag('icons/' + icon.path, opts)
   end
   
-  # Renders a rounded, bordered box using the magic of CSS, one big image,
-  # and a bunch of extraneous, non-semantic DIVs.
-  def roundify(*args, &block)
-    options = args.extract_options!
-    content = block_given? ? capture(&block) : (args.first || "&nbsp;")
-
-    color = options.delete(:color)
-    header = options.delete(:header)
-    note = options.delete(:note)
-    
-    classes = %w(roundify clear)
-    classes << color if color
-    classes << :plain unless options[:title] or color
-    classes << :plain if header
-    classes << header if header
-    
-    r1 = div(options[:title] ?
-      h3(options.delete(:title) + span(note, :class => "note"), :class => header) :
-      div("", :class => "r3"), :class => "r1")
-    
-    r2 = div(div(content, :class => :clear), :class => "r2")
-    
-    options[:class] = merge_css_classes(classes, options[:class])
-    rounded = div(r1 + r2, options)
-    
-    return concat(rounded, block.binding) if block_given?
-    rounded
+  def full_icon_path(icon)
+    "/images/icons/#{icon.path}"
   end
-
-  def merge_css_classes(original, *args)
-    classes = (original.is_a?(Array) ? original.collect(&:to_s) : (original || "").to_s.split(/\s+/)).compact
-    (classes | args.collect(&:to_s)).join(" ")
+  
+  def color_blank_tag(color, opts = {})
+    image_tag("icons/colors/#{color}.png", opts.reverse_merge(:width => 24, :height => 24))
   end
 end

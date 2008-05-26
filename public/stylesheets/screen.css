@@ -1,8 +1,6 @@
 @import "reset.css";
 @import "typography.css";
 @import "notification.css";
-@import "card.css";
-@import "roundify.css";
 
 body {
   background: #fff url(/images/header_background.png) repeat-x scroll 0% 0%;
@@ -32,7 +30,6 @@ body {
 #header a {
   color: white;
 }
-
 
 #wrapper {
  	margin: 0px auto;
@@ -68,32 +65,26 @@ h3 span {
   font-size: 11px;
 }
 
-li.deck {
+.deck {
   margin-top: 1.5em;
-  padding: 5px 0px 5px 70px;
+  padding: 5px 0px;
   border-bottom: 1px solid #EEEEEE;
 }
 
-li.deck.private {
-  background-image: url('/images/icons/private.png');
-  background-repeat: no-repeat;
+.deck .icon {
+  float: left;
+  margin-right: 16px;
 }
 
-li.deck.public {
-  background-image: url('/images/icons/public.png');
-  background-repeat: no-repeat;
-}
-
-li.deck p {
+.deck p {
   padding: 0px;
   margin: 0px;
 }
 
-li.deck p.note {
+.deck p.note {
   font-size: .9em;
   color: #666;
 }
-
 
 ul.accounts.decks li.deck {
   font-size: 2em;
@@ -140,7 +131,6 @@ div#sign_in h1 {
   width: 390px;
 }
 
-
 div.edit {
   width:  400px;
   margin: 50px auto 0px;
@@ -168,20 +158,14 @@ div.edit textarea {
   width: 390px;
 }
 
+div.edit input.name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
 div.edit input.button {
   margin-top: 1em;
   width: auto;
 }
 
-div.phone {
-  height: 320px;
-  width: 480px;
-}
-
-div.phone.site {
-  height: 210px;
-  width: 325px;  
-  border: 2px solid #999;
-  font-size: 18px;
-}
-
+@import "card.css";

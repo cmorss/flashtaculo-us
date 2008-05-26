@@ -84,3 +84,33 @@ ResizingTextArea.prototype = {
         if (newRows < t.rows) t.rows = Math.max(this.defaultRows, newRows);
     }
 }
+
+
+Card = {
+  numFields: 6, 
+ 
+  initAutoResizing: function() {
+    for (index = 0; index <= Card.numFields; index++) {
+      new ResizingTextArea('card_question_' + index);
+      new ResizingTextArea('card_answer_' + index);
+    }
+  },
+  
+  loadTemplate: function(templateID, verb) {
+    var template = $('template_' + templateID + '_' + verb);
+    var index = 0;
+    for (index = 0;index <= Card.numFields; index++) {
+      var field_holder = template.down('.line_' + index);
+      if (field_holder) {
+        var field_id = 'card_' + verb + '_' + index;
+        field_holder.appendChild($(field_id));
+      }
+    }
+    Card.hideTemplates(verb);
+    template.show();
+  },
+  
+  hideTemplates: function(verb) {
+    $$('template_' + verb).each(function(template) { template.hide(); });
+  }
+}
