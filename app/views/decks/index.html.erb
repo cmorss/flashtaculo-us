@@ -1,5 +1,26 @@
-<ul class='decks'>
-  <% @decks.each do |deck| %>
-   <%= render :partial => 'summary', :locals => {:deck => deck} %>
+<div class='decks'>
+  <h2>Decks you've created</h2>
+  <p class='note'>
+    <%= link_to('Create', new_deck_path) %> a new deck.
+  </p>
+  <ul>
+    <% current_account.decks.each do |deck| %>
+      <%= render :partial => '/decks/summary', :locals => {:deck => deck} %>
+    <% end %>
+  </ul>
+  
+  <br />
+  
+  <h2>Public decks you've subscribed to</h2>
+  <% if current_account.subscriptions.size > 0  %>
+    <p class='note'>
+      <%= link_to('Browse', public_decks_path) %> for additional public decks.
+    </p>
   <% end %>
-</ul>
+
+  <ul>
+    <% current_account.subscriptions.each do |deck| %>
+      <%= render :partial => '/decks/summary', :locals => {:deck => deck} %>
+    <% end %>
+  </ul>
+</div>

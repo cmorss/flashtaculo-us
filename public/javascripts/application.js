@@ -56,33 +56,33 @@ var Forms = {
 var ResizingTextArea = Class.create();
 
 ResizingTextArea.prototype = {
-    defaultRows: 1,
+  defaultRows: 1,
 
-    initialize: function(field)
-    {
-        var field = $(field)
-        this.defaultRows = Math.max(field.rows, 1);
-        this.resizeNeeded = this.resizeNeeded.bindAsEventListener(this);
-        Event.observe(field, "click", this.resizeNeeded);
-        Event.observe(field, "keyup", this.resizeNeeded);
-    },
+  initialize: function(field)
+  {
+      var field = $(field)
+      this.defaultRows = Math.max(field.rows, 1);
+      this.resizeNeeded = this.resizeNeeded.bindAsEventListener(this);
+      Event.observe(field, "click", this.resizeNeeded);
+      Event.observe(field, "keyup", this.resizeNeeded);
+  },
 
-    resizeNeeded: function(event)
+  resizeNeeded: function(event)
+  {
+    var t = Event.element(event);
+    var lines = t.value.split('\n');
+    var newRows = lines.length;
+    var oldRows = t.rows;
+    for (var i = 0; i < lines.length; i++)
     {
-        var t = Event.element(event);
-        var lines = t.value.split('\n');
-        var newRows = lines.length;
-        var oldRows = t.rows;
-        for (var i = 0; i < lines.length; i++)
-        {
-            var line = lines[i];
-            if (line.length * 2 >= t.cols) {
-              newRows += Math.floor(line.length * 1.9 / t.cols);
-            }
+        var line = lines[i];
+        if (line.length * 2 >= t.cols) {
+          newRows += Math.floor(line.length * 1.9 / t.cols);
         }
-        if (newRows > t.rows) t.rows = newRows;
-        if (newRows < t.rows) t.rows = Math.max(this.defaultRows, newRows);
     }
+    if (newRows > t.rows) t.rows = newRows;
+    if (newRows < t.rows) t.rows = Math.max(this.defaultRows, newRows);
+  }
 }
 
 
@@ -96,21 +96,38 @@ Card = {
     }
   },
   
-  loadTemplate: function(templateID, verb) {
-    var template = $('template_' + templateID + '_' + verb);
+  initTemplates: function() {
+    var templates = $('templates');
+    templates.id = 'templates_answer';
+    
+    var questions = templates.cloneNode(true);
+    questions.id = 'templates_question';
+    templates.up().appendChild(questions);
+  },
+  
+  loadTemplate: function(templateName, verb) {
+    // Move the currently loaded template to the templates div (which is hidden)
+    var templatesStorage = $('templates_' + verb);
+    var templateHolder = $('template_' + verb);
+    var template = templateHolder.down('div')
+
+    if (template) {
+      $('templates_' + verb).appendChild(template);
+    }
+    
+    // Move the template to load to the right spot (in the holder)
+    var templateToLoad = templatesStorage.down('div.' + templateName);
+
+    templateHolder.appendChild(templateToLoad);
+    
+    // Move the fields to this newly displayed template
     var index = 0;
-    for (index = 0;index <= Card.numFields; index++) {
-      var field_holder = template.down('.line_' + index);
+    for (index = 0; index <= Card.numFields; index++) {
+      var field_holder = templateToLoad.down('.line_' + index);
       if (field_holder) {
         var field_id = 'card_' + verb + '_' + index;
         field_holder.appendChild($(field_id));
       }
     }
-    Card.hideTemplates(verb);
-    template.show();
-  },
-  
-  hideTemplates: function(verb) {
-    $$('template_' + verb).each(function(template) { template.hide(); });
   }
 }

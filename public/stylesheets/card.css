@@ -3,16 +3,22 @@ form.card {
   margin-top: 35px;
 }
 
-div.template {
-  height: 320px;
-  width: 480px;
-  border: 2px solid #999;
-  font-size: 18px;
+input[type='submit'] {
+  width: 150px;
 }
 
-form div.template {
+div#template_answer, 
+div#template_question {
+  border: 2px solid #ddd;
+  float: left;
+  background-color: pink;
+  margin: 0 0 20px 35px;
+}
+
+.template {
   height: 210px;
   width: 325px;
+  font-size: 18px;
 }
 
 /* Styles */
@@ -27,25 +33,32 @@ form div.template {
   font-weight: bold;
 }
 
-/* Template centered single */
-
+/* Each phrase is in a single td */
 .template td {
   margin: auto;
-  text-align: center;
   width: 90%;
-  height: 90%;
+  text-align: center;
 }
+
+/* Template centered single */
 
 div.centered_single td {
   vertical-align: middle;
+  height: 90%;
+}
+
+div.centered_double td.line_0 {
+  vertical-align: bottom;
+  height: 50%;
+}
+
+div.centered_double td.line_1 {
+  vertical-align: top;
+  height: 50%;
 }
 
 .template td.line_2 {
   font-size: 30px;
-}
-
-.phone.answer {
-  margin-left: 20px;
 }
 
 .template input,
@@ -54,17 +67,18 @@ div.centered_single td {
   text-align: center;
   font-weight: bold;
   font-size: 1.25em;
-  border: 1px solid green;
+  border: 0px;
   width: 90%;
   resize: none;
 }
 
-.phone textarea:focus {
+.template input:focus,
+.template textarea:focus {
   outline: none;
 } 
 
-input.ghosted,
-textarea.ghosted {
+.template input.ghosted,
+.template textarea.ghosted {
   color: #999;
   background-color: #eee;
 }

@@ -42,6 +42,10 @@ module ApplicationHelper
     end
     content
   end
+
+  def label_for(field, content=nil)
+    "<label for='#{field.to_s.split.join("_")}'>#{content || field.to_s.titleize}</label>"
+  end
   
   def focus_dom_element_on_page_load(dom_id)
     javascript_tag("Event.observe(window, 'load', " + 

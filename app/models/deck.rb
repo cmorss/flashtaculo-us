@@ -19,8 +19,9 @@ class Deck < ActiveRecord::Base
     :conditions => ['public = ?', true]
   }
 
-  has_finder :for_library, {
-    :conditions => ['public = ?', true]
+  has_finder :for_library, lambda { |terms| 
+    
+    { :conditions => ['public = ?', true] }
   }
   
   has_finder :for_account_or_public, lambda { |account| 

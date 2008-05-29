@@ -14,4 +14,10 @@ class AccountTest < ActiveSupport::TestCase
     assert_equal a.email, logged_in_account.email
     assert_equal('micky', a.name)
   end
+  
+  def test_can_edit_deck
+    a = accounts(:micky_mouse)
+    assert a.edit_deck?(decks(:private_spanish))
+    assert !a.edit_deck?(decks(:private_german))
+  end
 end

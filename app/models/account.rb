@@ -21,5 +21,13 @@ class Account < ActiveRecord::Base
       find(:first, :conditions => ['email = ? and password = ?',
               email, password])
     end
-  end               
+  end
+  
+  def edit_deck?(deck)
+    self.admin? || deck.account_id == self.id
+  end
+  
+  def display_name
+    name.blank? ? email : name
+  end
 end

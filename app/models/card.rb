@@ -16,6 +16,7 @@ class Card < ActiveRecord::Base
       index = $2.to_i
       send("#{verb}=", []) unless send(verb)
       send(verb)[index] = args.first
+
     # Getter (question_3)
     elsif /^(.+)_(\d)$/ =~ name.to_s
       verb = $1

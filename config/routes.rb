@@ -32,10 +32,8 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :accounts
   
-  map.resources :decks do |deck|
-    deck.resources :cards, 
-      :method =>  { :create_answer => :post, 
-                    :create_question => :post }
+  map.resources :decks, :collection => { :public => :get } do |deck|
+    deck.resources :cards
   end
   
   map.resource :session, :controller => :sessions

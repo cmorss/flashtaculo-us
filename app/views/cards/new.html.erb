@@ -1,50 +1,63 @@
+<%= stylesheet_link_tag("card", :media => :screen) %>
+
 <div class="deck <%= @deck.public? ? 'public' : 'private' %>">
   <h3>Create a new card for <%= link_to(@deck.name, deck_path(@deck)) %></h3>
+<div>
+<div>
   <%= flash_for(:error, :info) %>  
       
   <% form_for([@deck, @card], :html => {:class => 'card'}) do |f| %>
-
     <div id='fields' style='display:none'>
+      <% tabindex = 0 %>
       <% %w(question answer).each_with_index do |verb, verb_index| %>
-        <% (1..6).each do |index| %>
-          <% ghost = index == 1 ? "Click to enter #{verb}" : " " %>
-          <% tabindex = (verb_index + 1) * (index - 1) %>
+        <% (0..6).each do |index| %>
+          <% ghost = index == 0 ? "Click to enter #{verb}" : " " %>
+          <% tabindex = tabindex + 1 %>
           <%= f.text_area(:"#{verb}_#{index}", :tabindex => tabindex, :rows => 1) %>
-          <%= set_ghost_text_in_field("card_question_#{index}", ghost) %>
+          <%= set_ghost_text_in_field("card_#{verb}_#{index}", ghost) %>
+
+          <script type="text/javascript" charset="utf-8">
+            new ResizingTextArea('<%= "card_#{verb}_#{index}" %>');
+          </script>
+          
         <% end %>
       <% end %>
     </div>
-
-    <%# template_question is for searching for all question templates %>
-    <div id='template_1_question' 
-      class='template question centered_single plain_style'>
-      <table>
-        <tr>
-          <td class='line_1'>
-            <%# f.text_area(:question_1, :tabindex => 2, :rows => 1) %>
-          </td>
-        </tr>
-      </table>
+   
+    <div id='template_question'>
     </div> 
     
-    <%# template_answer is for searching for all answer templates %>
-    <div id='template_1_answer' 
-      class='template answer centered_double plain_style'>
-      <table>
-        <tr>
-          <td class='line_1'>
-              <%# f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
-          </td>
-        </tr>
-
-        <tr>
-          <td class='line_2'>
-              <%# f.text_area(:answer_2, :tabindex => 3, :rows => 1) %>
-          </td>
-        </tr>
-      </table>
+    <div id='template_answer'>
     </div> 
+    
+    <div id='templates' style='display:none'>
+      <div class='template centered_single plain_style'>
+        <table>
+          <tr>
+            <td class='line_0'>
+                <%# f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
+            </td>
+          </tr>
+        </table>
+      </div> 
 
+      <div class='template centered_double plain_style'>
+        <table>
+          <tr>
+            <td class='line_0'>
+                <%# f.text_area(:answer_1, :tabindex => 2, :rows => 1) %>
+            </td>
+          </tr>
+
+          <tr>
+            <td class='line_1'>
+                <%# f.text_area(:answer_2, :tabindex => 3, :rows => 1) %>
+            </td>
+          </tr>
+        </table>
+      </div> 
+    </div>
+    
     <div class="center">
       <%= submit_tag(@card.new_record? ? "Create Card" : "Save Card", :class => 'button') %> or
       <%= link_to('Cancel', deck_path(@deck)) %>
@@ -53,8 +66,10 @@
 </div>
 
 <script>
+  Card.initTemplates();
+
   Event.observe(window, 'load', function() {
-      Card.loadTemplate(1, 'question');
-      Card.loadTemplate(1, 'answer');
+      Card.loadTemplate('centered_single', 'question');
+      Card.loadTemplate('centered_double', 'answer');
     }, false);
 </script>

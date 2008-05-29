@@ -2,18 +2,35 @@
   <div class='icon'>
     <%= icon_tag(@deck.icon) %>
   </div>
-
+<% self.methods.each do |method_name| %>
+  <% puts method_name if method_name =~ /public/ %>
+<% end %>
   <div class='left'>
-    <h3><%= link_to(h(@deck.name), edit_deck_path(@deck)) %></h3>
+    <h3>
+      <% if current_account && current_account.edit_deck?(@deck) %>
+        <%= link_to(h(@deck.name), edit_deck_path(@deck)) %>
+      <% else %>
+        <%= h(@deck.name) %>
+      <% end %>
+    </h3>
+    
     <%= p(@deck.description) unless @deck.description.empty? %>
+    <%= p("tags: #{@deck.tag_list}", :class => 'tags') unless @deck.tag_list.empty? %>
     <br>
     <h3>Cards</h3>
-    <p class="note">
-      <%= link_to("Add cards", new_deck_card_path(@deck)) %>
-    </p>
+    
+    <% if current_account && current_account.edit_deck?(@deck) %>
+      <p class="note">
+        <%= link_to("Add cards", new_deck_card_path(@deck)) %>
+      </p>
+    <% end %>
+    
+    <ul>
+      <% @deck.cards.each do |card| %>
+        <%= render :partial => '/cards/summary', :locals => {:card => card} %>
+      <% end %>
+    </ul>
   </div>
-  
-  <% @deck.cards.each do |card| %>
-    <%= render :partial => '/cards/summary', :locals => {:card => card} %>
-  <% end %>
+
+  <div class='clear'></div>
 </div>

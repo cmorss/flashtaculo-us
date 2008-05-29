@@ -21,10 +21,14 @@ body {
 #header h1 {
   clear: none;
 }
+#header h1 a:hover {
+  text-decoration: none;
+}
 
 #header h2 {
   font-family: Courier;
   font-size: 18px;
+  letter-spacing: .15em;
 }
 
 #header a {
@@ -61,8 +65,25 @@ body {
   float: left;
 }
 
+input[type='text'],
+input[type='password'],
+textarea {
+  font-size: 16px;
+  padding: 2px;
+  border: 2px solid #d1d1d1;
+}
+
+input[type='submit'] {
+  width: 60px;
+}
+
 h3 span {
   font-size: 11px;
+}
+
+.presence {
+  float: right;
+  font-size: 1.25em;
 }
 
 .deck {
@@ -93,13 +114,15 @@ ul.accounts.decks li.deck {
   border-bottom: 1px solid #EEEEEE;
 }
 
-div.card.summary {
+li.card.summary {
   margin-top: 1em;
+  width: 450px;
   font-size: 1.25em;
+  padding: 5px 30px 5px 20px;
 }
 
-div.card.summary p.question span,
-div.card.summary p.answer span {
+li.card.summary p.question span,
+li.card.summary p.answer span {
   font-size: 1.25em;
   font-weight: bold;
   padding-right: .25em;
@@ -152,9 +175,8 @@ div.edit .note {
   color: #555;
 }
 
-div.edit input,
+div.edit input[type='text'],
 div.edit textarea {
-  font-size: 16px;
   width: 390px;
 }
 
@@ -163,9 +185,17 @@ div.edit input.name {
   font-weight: bold;
 }
 
-div.edit input.button {
-  margin-top: 1em;
-  width: auto;
+div.search input[type='text'] {
+  width: 280px;
+  font-size: 1.25em;
+  border: 1px solid #999;
+  padding: 4px;
 }
 
+input.ghosted,
+textarea.ghosted {
+  color: #999;
+}
+
+/** This overrides some of the above **/
 @import "card.css";

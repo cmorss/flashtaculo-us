@@ -256,3 +256,20 @@ Redirected to http://test.host/
 Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0x23a7094 @filter=:find_deck>] rendered_or_redirected.
 Completed in 0.00237 (421 reqs/sec) | DB: 0.00203 (85%) | 302 Found [http://test.host/decks/675896861]
   [4;36;1mSQL (0.000451)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000720)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000219)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000594)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000439)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 592330521) [0m
+  [4;36;1mSQL (0.000724)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.000421)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000162)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000368)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000414)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 592330521) [0m
+  [4;36;1mDeck Load (0.000518)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 675896861) [0m
+  [4;35;1mSQL (0.000203)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000191)[0m   [0mBEGIN[0m
+  [4;36;1mAccount Load (0.000358)[0m   [0;1mSELECT * FROM `accounts` WHERE (`accounts`.`id` = 36027756) [0m
+  [4;35;1mDeck Load (0.000368)[0m   [0mSELECT * FROM `decks` WHERE (`decks`.`id` = 592330521) [0m
+  [4;36;1mDeck Load (0.000374)[0m   [0;1mSELECT * FROM `decks` WHERE (`decks`.`id` = 675896861) [0m
+  [4;35;1mSQL (0.000133)[0m   [0mROLLBACK[0m

@@ -31,7 +31,8 @@
           <% colors = %w(blue yellow green magenta) %>
           <% overlays = %w(geo bird person basic_math) %>
           <% colors.each_with_index do |color, index| %>
-            <%= link_to_function(color_blank_tag(color), "switchColor('#{color}', #{index})") %>
+            <%= link_to_function(color_blank_tag(color), 
+                    "Decks.switchColor('#{color}', #{index})") %>
           <% end %>
         </div>
       
@@ -42,7 +43,7 @@
               <% overlays.each do |overlay| %>
                 <% icon = Icon.new(:color => color, :overlay => overlay) %>
                 <%= link_to_function(icon_tag(icon), 
-                      "iconSelected('#{full_icon_path(icon)}', '#{color}', '#{overlay}')") -%>
+                      "Decks.iconSelected('#{full_icon_path(icon)}', '#{color}', '#{overlay}')") -%>
               <% end %>
             </div>
           <% end %>
@@ -64,7 +65,7 @@
       </p>
     
       <div class="center" style='clear:both'>
-        <%= submit_tag("Save", :class => 'button') %> or 
+        <%= submit_tag("Save", :class => 'button', :id => 'submit_button') %> or 
         <%= link_to('Cancel', deck_path(@deck)) %>
       </div>
     </div>
@@ -72,5 +73,19 @@
   <% end %>
   
   <%= focus_dom_element_on_page_load('deck_name') %>
+  
+  <script type="text/javascript" charset="utf-8">
+    Event.observe('deck_name', 'keypress', function(event) {
+      var submit = $('submit_button');
+      var text = $('deck_name').value;
+      if ((text.length > 1) && submit.disabled) {
+        submit.disabled = false;
+      }
+      else if ((text.length <= 1) && !submit.disabled) {
+        submit.disabled = true;
+      }
+    });
+    $('submit_button').disable();    
+  </script>
 </div>
 

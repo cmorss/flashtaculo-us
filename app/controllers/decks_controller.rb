@@ -1,20 +1,24 @@
 class DecksController < ApplicationController
   
-  before_filter :find_deck, :except => [:index, :new, :create]
-  skip_before_filter :check_for_user, :only => :show
+  before_filter :find_deck, :except => [:index, :new, :create, :public]
+  skip_before_filter :check_for_user, :except => [:public]
+  
+  def public
+    @decks = Deck.for_library(:search_terms => params[:search])
+  end
   
   def index
-    @decks = Deck.for_library
+    # View uses current_account collections
   end
   
   def new
-    @deck = Deck.new(:account_id => session[:account_id])
+    @deck = current_account.decks.build(:icon => Icon.default)
+    render :template => 'decks/edit'
   end
   
   def create
-    @deck = Deck.new(params[:deck].merge(:style_id => Style.default.id))
+    @deck = current_account.decks.create(params[:deck].merge(:style_id => Style.default.id))
     if @deck.valid?
-      @deck.save!
       redirect_to(deck_path(@deck))
     else
       flash[:error] = @deck.errors.full_messages

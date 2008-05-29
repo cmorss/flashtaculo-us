@@ -1,5 +1,4 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
+require 'cgi'
 
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
@@ -20,4 +19,8 @@ class ApplicationController < ActionController::Base
       redirect_to new_session_path
     end
   end
+  
+  def escape(input)
+    CGI.escapeHTML(input) rescue input
+  end  
 end

@@ -36,3 +36,8 @@ blockquote, q { quotes: "" ""; }
 
 a img { border:none; }
 :focus { outline: 0;}
+
+label { 
+  display: block; 
+  font-size: 1.25em;
+}
