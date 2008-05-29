@@ -1,0 +1,17 @@
+<div class='decks'>
+
+  <h2>Public Decks</h2>
+  <div class='search'>
+    <% form_tag(:action => 'public') do %>
+      <%= text_field_tag(:search) %>
+      <%= set_ghost_text_in_field('search', 'enter words to search for') %>
+      <%= submit_tag('Go', :class => 'button') %>
+    <% end %>
+  </div>
+  
+  <ul>
+    <% @decks.each do |deck| %>
+      <%= render :partial => '/decks/summary', :locals => {:deck => deck} %>
+    <% end %>
+  </ul>
+</div>
